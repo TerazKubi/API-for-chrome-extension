@@ -1,8 +1,6 @@
 require('dotenv').config()
 const request = require('request')
 
-
-
 var AT = ''
 
 function getToken(callback) {

@@ -1,6 +1,3 @@
-require('dotenv').config()
-
-const fs = require("fs")
 const express = require('express')
 const {getToken, getStreams, addStreamer, validateToken} = require('./twitch.js')
 
