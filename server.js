@@ -2,6 +2,8 @@ const express = require('express')
 const {getToken, getStreams, addStreamer, validateToken} = require('./twitch.js')
 
 const app = express()
+let port = process.env.PORT || 3000
+
 
 app.use(express.json())
 
@@ -44,7 +46,7 @@ app.get('/streamers/streamer', (req, res) => {
 
 
 
-app.listen(3000, () => console.log("Server started..."))
+app.listen(port, () => console.log("Server started... PORT: "+port))
 
 
 
