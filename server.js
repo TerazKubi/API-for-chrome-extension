@@ -40,6 +40,8 @@ app.get('/streamers/streamer', (req, res) => {
     console.log("New request: streamer, Param: ", req.query.login)
     var query = req.query.login
     if(!query) return res.status(400).send({message: "Nie podano stremera do sprawdzenia", status: 400})
+   
+    if (Array.isArray(query)) query = query[0]
 
     addStreamer(query, (status, data) => {
         if (status !== 200) {

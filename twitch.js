@@ -51,6 +51,7 @@ function getStreams(userLogins, callback) {
 }
 
 function addStreamer(streamerLogin, callback) {
+    
     const options = {
         url: "https://api.twitch.tv/helix/users?login="+streamerLogin,
         json: true,
