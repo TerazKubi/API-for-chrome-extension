@@ -54,7 +54,7 @@ app.get('/streamers/streamer', (req, res) => {
 })
 
 app.get('*', function(req, res){
-    res.status(404).send('That route doesnt exists...')
+    res.status(404).send('That route doesnt exists... \n try /streamers/streamer?login=<name> \n or \n /streamers/streams?login=<name>&name=<name>')
 })
 
 app.listen(port, () => console.log("Server started... PORT: "+port))
