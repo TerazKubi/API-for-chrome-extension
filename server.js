@@ -10,12 +10,16 @@ app.use(express.json())
 
 app.get('/streamers/streams', (req, res) => {
     console.log("New request: streams, Params: ", req.query.login)
-    getStreams(req.query.login, (status, data) => {
+    var query = req.query.login
+    if(!query) return res.status(400).send({message: "Nie podano stremow do sprawdzenia", status: 400})
+    if(!Array.isArray(query)) query = Array(query)
+
+    getStreams(query, (status, data) => {
         if (status !== 200) {
             console.log("Error getting streams. Status: ", status, data.message)
             return res.status(status).send(data)
         }
-
+        
         var onlineStreams = []
         if (data.length) {
             data.forEach(stream => {
@@ -34,7 +38,10 @@ app.get('/streamers/streams', (req, res) => {
 
 app.get('/streamers/streamer', (req, res) => {
     console.log("New request: streamer, Param: ", req.query.login)
-    addStreamer(req.query.login, (status, data) => {
+    var query = req.query.login
+    if(!query) return res.status(400).send({message: "Nie podano stremera do sprawdzenia", status: 400})
+
+    addStreamer(query, (status, data) => {
         if (status !== 200) {
             console.log("Error getting streamer. Status: ", status, data.message)
             return res.status(status).send(data)
