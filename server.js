@@ -27,7 +27,8 @@ app.get('/streamers/streams', (req, res) => {
                     user_login: stream.user_login,
                     game_name: stream.game_name,
                     title: stream.title,
-                    viewer_count: stream.viewer_count
+                    viewer_count: stream.viewer_count,
+                    thumbnail: stream.thumbnail_url
                 })
             })
         }
