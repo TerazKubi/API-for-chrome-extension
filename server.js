@@ -66,7 +66,7 @@ app.listen(port, () => console.log("Server started... PORT: "+port))
 
 getToken(({status}) => {
     if (status !== 200) {
-        console.log("Error with geting access token. status: ", status)
+        console.log("Error with geting access token.. status: ", status)
     }
 })
 setInterval(()=> {
